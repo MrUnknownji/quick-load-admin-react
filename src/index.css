@@ -1,0 +1,27 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+:root {
+    --color-primary: #3c0b0b;
+    --color-secondary: #c24e00;
+    --color-accent: #ff6f00;
+}
+
+@layer base {
+    body {
+        @apply font-sans;
+    }
+}
+
+@layer components {
+    .btn-primary {
+        @apply bg-primary-600 text-white py-2 px-4 rounded-md hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary-600 focus:ring-opacity-50;
+    }
+}
+
+@layer utilities {
+    .text-primary {
+        @apply text-primary-600;
+    }
+}
