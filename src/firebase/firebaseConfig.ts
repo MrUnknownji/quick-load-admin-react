@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAuth, RecaptchaVerifier } from "firebase/auth";
 export const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  apiKey: "AIzaSyC4STJesm6rGV-N_7lvCIluoSRppKmmtzk",
   authDomain: "moving-rolls-707e9.firebaseapp.com",
   projectId: "moving-rolls-707e9",
   storageBucket: "moving-rolls-707e9.appspot.com",
