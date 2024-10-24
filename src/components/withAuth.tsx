@@ -1,13 +1,12 @@
 import { faSignOutAlt } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useEffect, useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useUser } from "../hooks/useUser";
 import LoadingComponent from "./form-components/LoadingComponent";
 
 const AuthWrapper = ({ children }: { children: React.ReactNode }) => {
   const navigate = useNavigate();
-  const location = useLocation();
   const { user, loading } = useUser();
   const [isAuthorized, setIsAuthorized] = useState(false);
 
@@ -17,17 +16,16 @@ const AuthWrapper = ({ children }: { children: React.ReactNode }) => {
 
       if (!accessToken) {
         console.log("No access token found");
-        navigate("/", { replace: true });
+        navigate("/login", { replace: true });
         return;
       }
 
       if (!user) {
         console.log("No user found");
-        navigate("/", { replace: true });
+        navigate("/dashboard", { replace: true });
       } else {
         console.log("Current user:", user);
-        // const isAdmin = user.type === "admin";
-        const isAdmin = true;
+        const isAdmin = user.type.toLowerCase() === "admin";
         setIsAuthorized(isAdmin && !!accessToken);
 
         if (!isAdmin) {
